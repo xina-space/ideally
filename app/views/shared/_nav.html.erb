@@ -3,11 +3,11 @@
 <% end %>
 
 <% if user_signed_in? %>
-      <div class="nav-item-in">
+      <div class="nav-item">
       <%= link_to 'sign out', destroy_user_session_path, method: :delete, class: "nav-link" %>
       </div>
     <% else %>
-      <div class="nav-item-out">
+      <div class="nav-item">
         <%= link_to 'sign in', new_user_session_path, class: "nav-link" %>
       </div>
 <% end %>

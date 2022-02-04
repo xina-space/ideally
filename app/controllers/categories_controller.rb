@@ -32,6 +32,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    # authorize @ideas
     @category = Category.where.not(user_id: current_user.id)
     authorize @category
   end

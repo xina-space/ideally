@@ -1,3 +1,11 @@
+<% if policy(Category).create? %>
+  <%= link_to new_category_path do %>
+      <p>New category</p>
+  <% end %>
+<% end %>
+
 <% @categories.each do |category| %>
-<h2> <%= category.title %> </h2>
+  <%= link_to category_ideas_path(category) do %>
+    <h2> <%= category.title %> </h2>
+  <% end %>
 <% end %>

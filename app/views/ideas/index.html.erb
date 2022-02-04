@@ -1,0 +1,17 @@
+
+<% if policy(Idea).create? %>
+  <%= link_to "Add a new idea", new_category_idea_path, class: 'btn btn-primary my-auto' %>
+<% end %>
+
+<ul>
+  <% if @category.ideas.nil? %>
+    <p>Start adding ideas</p>
+  <% else %>
+    <% @category.ideas.each do |idea| %>
+      <li>
+        <h1> <%= idea.title %> </h1>
+        <p> <%= idea.description %> </p>
+      </li>
+    <% end %>
+  <% end %>
+</ul>

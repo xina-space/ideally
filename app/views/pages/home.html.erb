@@ -1,1 +1,7 @@
 <h1>home page</h1>
+
+<% if user_signed_in? %>
+  <%= link_to 'Get started', categories_path %>
+<% else %>
+  <%= link_to 'Get started', new_user_session_path %>
+<% end %>

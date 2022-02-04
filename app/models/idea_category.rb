@@ -1,4 +1,5 @@
 class IdeaCategory < ApplicationRecord
-  belongs_to :idea_id
-  belongs_to :category_id
+  belongs_to :idea
+  belongs_to :category
+  has_many :ideas, through: :idea_categories
 end
