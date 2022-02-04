@@ -1,10 +1,11 @@
-class CategoryController < ApplicationController
+class CategoriesController < ApplicationController
   before_action :set_category, only: %i[show edit update destroy]
 
   def index
     @user = current_user
-    @categories = Category.where.not(user_id: current_user.id)
+    @categories = policy_scope(Category)
     @user_categories = Category.where(user_id: current_user.id)
+
   end
 
   def new
@@ -31,7 +32,7 @@ class CategoryController < ApplicationController
   end
 
   def show
-    @categories = Category.where.not(user_id: current_user.id)
+    @category = Category.where.not(user_id: current_user.id)
     authorize @category
   end
 

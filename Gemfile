@@ -62,3 +62,5 @@ gem 'bootstrap', '~> 5.1.3'
 gem 'devise'
 
 gem 'simple_form'
+
+gem 'jquery-rails'

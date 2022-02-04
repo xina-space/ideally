@@ -1,4 +1,4 @@
-class IdeaController < ApplicationController
+class IdeasController < ApplicationController
   before_action :set_idea, only: %i[show edit update destroy]
 
   def index
