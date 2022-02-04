@@ -4,7 +4,7 @@ class CreateIdeas < ActiveRecord::Migration[6.1]
       t.string :title
       t.string :description
       t.string :status
-      t.integer :user_id
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end

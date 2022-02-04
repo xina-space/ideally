@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_04_103613) do
+ActiveRecord::Schema.define(version: 2022_02_04_114946) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,11 +19,13 @@ ActiveRecord::Schema.define(version: 2022_02_04_103613) do
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_categories_on_user_id"
   end
 
   create_table "idea_categories", force: :cascade do |t|
-    t.integer "student_id"
-    t.integer "course_id"
+    t.integer "idea_id"
+    t.integer "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -34,6 +36,10 @@ ActiveRecord::Schema.define(version: 2022_02_04_103613) do
     t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.bigint "category_id", null: false
+    t.index ["category_id"], name: "index_ideas_on_category_id"
+    t.index ["user_id"], name: "index_ideas_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -48,4 +54,7 @@ ActiveRecord::Schema.define(version: 2022_02_04_103613) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "categories", "users"
+  add_foreign_key "ideas", "categories"
+  add_foreign_key "ideas", "users"
 end

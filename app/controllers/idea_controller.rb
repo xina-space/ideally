@@ -29,8 +29,27 @@ class IdeaController < ApplicationController
     authorize @idea
   end
 
+  def destroy
+    authorize @idea
+    @idea.destroy
+    redirect to ideas_path
+  end
+
+  def update
+    @idea.update(@idea_params)
+    authorize @idea
+    if @idea.update(idea_params)
+      redirect_to ideas_path
+    else
+      render :edit
+    end
+  end
 
   private
+
+  def idea_params
+    params.require(:idea).permit(:title, :completed, :status)
+  end
 
   def set_idea
     @idea = Idea.find(params[:id])
