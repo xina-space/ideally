@@ -12,15 +12,21 @@ class IdeaController < ApplicationController
 
   def create
     @idea = Idea.new
+    @idea.user = current_user
     authorize @idea
+    if @idea.save
+      redirect_to idea_path(@idea)
+    else
+      render :new
+    end
   end
 
   def show
-    authorize @activity
+    authorize @idea
   end
 
   def edit
-    authorize @activity
+    authorize @idea
   end
 
 
