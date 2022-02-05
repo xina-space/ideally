@@ -1,8 +1,8 @@
-<%= simple_form_for([@idea, @category], remote: true) do |f| %>
+<%= simple_form_for([@category, @idea]) do |f| %>
 
   <div class="form-inputs">
-    <%= f.input :title, as: :string %>
-    <%= f.input :description, as: :string %>
+    <%= f.input :title %>
+    <%= f.input :description %>
     <%= f.input :status, priority: ['incomplete'], collection: [ "incomplete", "in progress", "done"]  %>
   </div>
 

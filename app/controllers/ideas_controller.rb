@@ -5,6 +5,7 @@ class IdeasController < ApplicationController
 
   def index
     @ideas = policy_scope(Idea)
+    # @ideas = Idea.all
   end
 
   def new
@@ -17,10 +18,10 @@ class IdeasController < ApplicationController
     @idea.category = @category
     @idea.user = current_user
     authorize @idea
-    if params[:category][:id].present?
-      @idea = Idea.find(params[:category][:id])
-      IdeaCategory.create(idea: @idea, category: @category)
-    end
+    # if params[:category][:id].present?
+    #   @idea = Idea.find(params[:category][:id])
+    #   IdeaCategory.create(idea: @idea, category: @category)
+    # end
     if @idea.save
       redirect_to category_ideas_path(@category)
     else
@@ -63,7 +64,8 @@ class IdeasController < ApplicationController
   # end
 
   def idea_params
-    params.require(:idea).permit(:title, :description, :status, :category_id)
+    params.permit(:title, :description, :status, :category_id)
+    # params.require(:idea).permit(:title, :description, :status, :category_id)
   end
 
   def set_idea
