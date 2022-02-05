@@ -1,6 +1,146 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+@import "config/fonts";
+@import "config/colors";
+
+
+
+h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 4rem;
+  line-height: 4rem;
+}
+
+h2, h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+}
+
+p {
+  font-family: 'Space Mono', monospace;
+}
+body {
+  background-color: $beige;
+}
 
 #logo {
   width: 100px;
+}
+
+.nav-container {
+  border: 2px solid $black;
+}
+
+.logo-box {
+  border-right: 2px solid $black;
+  text-align:center;
+}
+
+.nav-button {
+  border-left: 2px solid $black;
+  width: 20%;
+  &:hover {
+    background-color: $yellow;
+  }
+}
+
+a {
+  color: $black;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  width: 200px;
+  display: block;
+  position: relative;
+  text-decoration: none;
+  &:hover {
+    color: $black;
+  }
+}
+
+.nav-link {
+  color: $black;
+  text-align:center;
+  &:hover {
+    color: $black;
+  }
+}
+
+
+.box-border {
+  border: 2px solid $black;
+}
+
+// homepage
+
+.home-top {
+  height: 30vh;
+  border-left: 2px solid $black;
+  border-right: 2px solid $black;
+}
+
+.home-cta {
+  border-left: 2px solid $black;
+  background-color: $green;
+  &:hover {
+    background-color: $yellow;
+  }
+}
+
+.home-hero {
+  border: 2px solid $black;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 50vh;
+}
+
+.home-text {
+  padding: 30px;
+  padding-right: 40%;
+}
+
+//categories index
+
+.category-top {
+  border-bottom: 2px solid $black;
+  border-left: 2px solid $black;
+  border-right: 2px solid $black;
+}
+
+.cat-title {
+  background-color: $pink;
+}
+
+.new-cat-link {
+  text-align: center;
+  border-left: 2px solid $black;
+  background-color: $green;
+  &:hover {
+    background-color: $yellow;
+  }
+}
+
+.category {
+  // width: 25%;
+  height: 150px;
+  padding: 15px;
+  border-left: 2px solid $black;
+  border-bottom: 2px solid $black;
+  border-right: 2px solid $black;
+  background-color: $white;
+    &:hover {
+      background-color: $yellow;
+    }
+}
+
+.category-section {
+  border: 2px solid $black;
+  height: 100vh;
+}
+
+.category-title {
+  text-transform: capitalize;
+  font-weight: 300;
 }

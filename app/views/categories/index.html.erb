@@ -1,11 +1,27 @@
-<% if policy(Category).create? %>
-  <%= link_to new_category_path do %>
-      <p>New idea category</p>
-  <% end %>
-<% end %>
 
-<% @categories.each do |category| %>
-  <%= link_to category_ideas_path(category) do %>
-    <h2> <%= category.title %> </h2>
-  <% end %>
-<% end %>
+<div class="category-top d-flex">
+  <div class="cat-title bd-highlight w-100 p-3">
+    <h2>Your idea categories</h2>
+  </div>
+
+  <div class="new-cat-link bd-highlight p-3 d-flex align-items-center">
+    <% if policy(Category).create? %>
+      <%= link_to new_category_path do %>
+          <p>New idea category</p>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<div class="category-section">
+  <div class="categories row">
+    <% @categories.each do |category| %>
+        <div class="category col-lg-4 col-sm-6 col-xs-12 d-flex align-items-end">
+          <%= link_to category_ideas_path(category) do %>
+            <p class="category-title"> <%= category.title %> </p>
+          <% end %>
+          <%= link_to %>
+        </div>
+    <% end %>
+  </div>
+</div>

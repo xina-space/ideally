@@ -1,7 +1,18 @@
-<h1>home page</h1>
+<div class="home-top">
+</div>
 
-<% if user_signed_in? %>
-  <%= link_to 'Browse my categories', categories_path %>
-<% else %>
-  <%= link_to 'Get started', new_user_session_path %>
-<% end %>
+<div class="home-hero d-flex">
+
+  <div class="home-text bd-highlight w-100">
+    <h1>Make ideas come true</h1>
+    <p>An organized approach to kickstarting your projects</p>
+  </div>
+
+  <div class="home-cta bd-highlight p-3 d-flex align-items-center">
+  <% if user_signed_in? %>
+    <%= link_to 'Browse my categories', categories_path %>
+  <% else %>
+    <%= link_to 'Get started', new_user_session_path %>
+  <% end %>
+  </div>
+</div>
