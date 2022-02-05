@@ -42,15 +42,17 @@ class CategoriesController < ApplicationController
   end
 
   def update
+    authorize @category
     @category.update(category_params)
     if @category.update(category_params)
-      redirect_to category_path(@category)
+      redirect_to categories_path
     else
       render :edit
     end
   end
 
   def destroy
+    authorize @category
     @category.destroy
     redirect_to categories_path
   end
