@@ -9,20 +9,28 @@ class IdeasController < ApplicationController
   end
 
   def new
-    @idea = Idea.new(idea_params)
+    # @category = Category.find(params[:category_id])
+    @idea = Idea.new
+    # if params[:id].present?
+    #   @category_id = params[:id]
+    # end
     authorize @idea
   end
 
   def create
+    @category = Category.find(params[:category_id])
     @idea = Idea.new(idea_params)
-    @idea.category = @category
-    @idea.user = current_user
+    # @idea.category = IdeaCategory.create(
+    #   idea_id: @idea.id,
+    #   category_id: @category.id
+    # )
     authorize @idea
-    # if params[:category][:id].present?
-    #   @idea = Idea.find(params[:category][:id])
-    #   IdeaCategory.create(idea: @idea, category: @category)
-    # end
+    @idea.user = current_user
     if @idea.save
+      if params[:category][:id].present?
+        @category = Category.find(params[:category][:id])
+        IdeaCategory.create(idea: @idea, category: @category)
+      end
       redirect_to category_ideas_path(@category)
     else
       render :new
@@ -64,8 +72,8 @@ class IdeasController < ApplicationController
   # end
 
   def idea_params
-    params.permit(:title, :description, :status, :category_id)
-    # params.require(:idea).permit(:title, :description, :status, :category_id)
+    # params.permit(:title, :description, :status)
+    params.require(:idea).permit(:title, :description, :status)
   end
 
   def set_idea

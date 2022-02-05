@@ -1,0 +1,2 @@
+class IdeaCategoriesController < ApplicationController
+end
