@@ -1,7 +1,24 @@
 
-<% if policy(Idea).create? %>
-  <%= link_to "Add a new idea", new_category_idea_path, class: 'btn btn-primary my-auto' %>
-<% end %>
+
+<div class="idea-top d-flex">
+  <div class="back-button-box bd-highlight p-3">
+  <%= link_to categories_path do %>
+    <i class="ph-arrow-circle-left" id="back-button"></i>
+  <% end %>
+  </div>
+
+  <div class="cat-title bd-highlight w-100 p-3">
+    <h2>Your ideas</h2>
+  </div>
+
+  <div class="new-idea-link bd-highlight p-3 d-flex align-items-center">
+    <% if policy(Category).create? %>
+      <%= link_to new_category_idea_path do %>
+          <p>New idea</p>
+      <% end %>
+    <% end %>
+  </div>
+</div>
 
 <ul>
   <% if @category.ideas.nil? %>

@@ -50,7 +50,6 @@ a {
   font-family: 'Space Mono', monospace;
   font-weight: 700;
   text-transform: uppercase;
-  width: 200px;
   display: block;
   position: relative;
   text-decoration: none;
@@ -148,4 +147,35 @@ a {
 
 #action-button {
   font-size: 24px;
+}
+
+// idea index
+.idea-top {
+  border-bottom: 2px solid $black;
+  border-left: 2px solid $black;
+  border-right: 2px solid $black;
+}
+
+.new-idea-link {
+  text-align: center;
+  border-left: 2px solid $black;
+  background-color: $green;
+  &:hover {
+    background-color: $yellow;
+  }
+}
+
+#back-button {
+  font-size: 40px;
+}
+
+.back-button-box {
+  border-right: 2px solid $black;
+  border-left: 2px solid $black;
+  background-color: $yellow;
+}
+
+.new-top {
+  border-bottom: 2px solid $black;
+  border-right: 2px solid $black;
 }

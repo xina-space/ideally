@@ -1,9 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  idea_id: one
-  category_id: one
+  idea: one
+  category: one
 
 two:
-  idea_id: two
-  category_id: two
+  idea: two
+  category: two
