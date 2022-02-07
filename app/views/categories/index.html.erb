@@ -16,18 +16,20 @@
 <div class="category-section">
   <div class="categories row">
     <% @categories.each do |category| %>
-        <div class="category col-lg-4 col-sm-6 col-xs-12 d-flex align-items-end ">
-            <%= link_to category.title, category_ideas_path(category), class:'category-title' %>
+      <% if category.user_id == @user.id %>
+          <div class="category col-lg-4 col-sm-6 col-xs-12 d-flex align-items-end ">
+              <%= link_to category.title, category_ideas_path(category), class:'category-title' %>
 
-            <div class="category-buttons d-flex">
-              <%= link_to edit_category_path(category) do %>
-                <i class="ph-pencil-simple-line" id="action-button"></i>
-              <% end %>
-              <%= link_to category, method: :delete, data: {confirm: "Are you sure you want to delete?"} do %>
-                <i class="ph-trash" id="action-button"></i>
-              <% end %>
-            </div>
-        </div>
+              <div class="category-buttons d-flex">
+                <%= link_to edit_category_path(category) do %>
+                  <i class="ph-pencil-simple-line" id="action-button"></i>
+                <% end %>
+                <%= link_to category, method: :delete, data: {confirm: "Are you sure you want to delete?"} do %>
+                  <i class="ph-trash" id="action-button"></i>
+                <% end %>
+              </div>
+          </div>
+          <% end %>
     <% end %>
   </div>
 </div>
