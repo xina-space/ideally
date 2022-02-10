@@ -1,7 +1,8 @@
 class IdeasController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_category
+  before_action :set_progress
   before_action :set_idea, only: %i[show edit update destroy]
-  before_action :find_category, except: :destroy
-  before_action :find_user
 
   def index
     @ideas = policy_scope(Idea)
@@ -9,8 +10,7 @@ class IdeasController < ApplicationController
   end
 
   def new
-    @category = Category.find(params[:category_id])
-    @idea = Idea.new
+    @idea = @progress.ideas.new
     # if params[:id].present?
     #   @category_id = params[:id]
     # end
@@ -19,20 +19,19 @@ class IdeasController < ApplicationController
 
   def create
     # @category = Category.find(params[:category_id])
-    @idea = Idea.new(idea_params)
+    @idea = @progress.ideas.new(idea_params)
     # @idea.category = IdeaCategory.create(
     #   idea_id: @idea.id,
     #   category_id: @category.id
     # )
-    @idea.category = @category
-    @idea.user = current_user
+    # @idea.user = current_user
     authorize @idea
     if @idea.save
       # if params[:category][:id].present?
       #   @category = Category.find(params[:category][:id])
       #   IdeaCategory.create(idea: @idea, category: @category)
       # end
-      redirect_to category_ideas_path(@category)
+      redirect_to @progress, notice: 'Your idea was added successfully'
     else
       render :new
     end
@@ -49,14 +48,17 @@ class IdeasController < ApplicationController
   def destroy
     authorize @idea
     @idea.destroy
-    redirect to category_ideas_path
+    redirect to @category, notice: 'The idea was successfully destroyed'
   end
 
   def update
     @idea.update(idea_params)
     authorize @idea
     if @idea.update(idea_params)
-      redirect_to category_ideas_path
+      respond_to do |format|
+        format.html { redirect_to @list, notice: 'Item was successfully updated.' }
+        format.json {}
+      end
     else
       render :edit
     end
@@ -64,21 +66,29 @@ class IdeasController < ApplicationController
 
   private
 
-  def find_category
-    @category = Category.find(params[:category_id])
+  # def find_category
+  #   @category = Category.find(params[:category_id])
+  # end
+
+  def set_progress
+    @progress = @category.progresses.find(params[:progress_id])
   end
 
-  def idea_params
-    # params.permit(:title, :description, :status)
-    params.require(:idea).permit(:category_id, :title, :description, :status)
+  def set_category
+    @category = current_user.categories.includes(progresses: :ideas).find(params[:category_id])
   end
 
   def set_idea
-    @idea = Idea.find(params[:id])
+    @idea = @progress.ideas.find(params[:id])
     authorize @idea
   end
 
   def find_user
     @user = current_user.id
+  end
+
+  def idea_params
+    # params.permit(:title, :description, :status)
+    params.require(:idea).permit(:progress_id, :content)
   end
 end
