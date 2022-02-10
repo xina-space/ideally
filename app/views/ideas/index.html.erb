@@ -41,10 +41,16 @@
         <p class="uppercase-small">Not started</p>
     </div>
     <% @ideas.each do |idea| %>
-      <% if idea.category_id == @category.id %>
-        <% if idea.status == 'incomplete'  %>
-            <h1> <%= idea.title %> </h1>
-            <p> <%= idea.description %> </p>
+      <% if idea != nil %>
+        <% if idea.category_id == @category.id %>
+          <%= link_to category_idea_path(@category, idea) do %>
+            <div class="idea">
+              <% if idea.status == 'incomplete'  %>
+                  <p class="p-4"> <%= idea.title %> </p>
+                  <p> <%= idea.description %> </p>
+              <% end %>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
     <% end %>
@@ -55,18 +61,17 @@
         <p class="uppercase-small">In progress</p>
     </div>
     <% @ideas.each do |idea| %>
-      <% if idea.category_id == @category.id %>
-        <% if idea.status == 'in progress'  %>
-            <h1> <%= idea.title %> </h1>
-            <p> <%= idea.description %> </p>
-            <%= simple_form_for [@category, idea] do |f| %>
-              <%= f.input :status, priority: ['incomplete'], collection: [ "incomplete", "in progress", "done"]  %>
-              <%= f.button :submit, class:'submit-button'  %>
+      <% if idea != nil %>
+        <% if idea.category_id == @category.id %>
+          <div class="idea">
+            <% if idea.status == 'in progress'  %>
+                <p class="p-4"> <%= idea.title %> </p>
+                <p> <%= idea.description %> </p>
             <% end %>
+          </div>
         <% end %>
       <% end %>
     <% end %>
-
   </div>
 
   <div class="done col-4">
@@ -74,10 +79,14 @@
         <p class="uppercase-small">Done</p>
     </div>
     <% @ideas.each do |idea| %>
-      <% if idea.category_id == @category.id %>
-        <% if idea.status == 'done'  %>
-            <h1> <%= idea.title %> </h1>
-            <p> <%= idea.description %> </p>
+      <% if idea != nil %>
+        <% if idea.category_id == @category.id %>
+        <div class="idea">
+          <% if idea.status == 'done'  %>
+              <p class="p-4"> <%= idea.title %> </p>
+              <p> <%= idea.description %> </p>
+          <% end %>
+        </div>
         <% end %>
       <% end %>
     <% end %>

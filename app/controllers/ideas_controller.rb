@@ -49,14 +49,14 @@ class IdeasController < ApplicationController
   def destroy
     authorize @idea
     @idea.destroy
-    redirect to ideas_path
+    redirect to category_ideas_path
   end
 
   def update
     @idea.update(idea_params)
     authorize @idea
     if @idea.update(idea_params)
-      redirect_to ideas_path
+      redirect_to category_ideas_path
     else
       render :edit
     end

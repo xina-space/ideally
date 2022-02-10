@@ -1,11 +1,10 @@
-
 <div class="new-top d-flex">
   <div class="back-button-box bd-highlight p-3">
-  <%= link_to categories_path do %>
+  <%= link_to category_ideas_path do %>
     <i class="ph-arrow-circle-left" id="back-button"></i>
   <% end %>
   </div>
-  <h2 class="p-3">Edit category</h2>
+  <h2 class="p-3">Add idea</h2>
 </div>
 
-  <%= render 'form', category: @category %>
+<%= render 'form', idea: @idea , category: @category %>

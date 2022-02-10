@@ -1,1 +1,24 @@
+<div class="idea-top d-flex">
+  <div class="back-button-box bd-highlight p-3">
+  <%= link_to category_ideas_path do %>
+    <i class="ph-arrow-circle-left" id="back-button"></i>
+  <% end %>
+  </div>
+  <div class="new-idea-link bd-highlight p-3 d-flex align-items-center">
+    <% if policy(Idea).create? %>
+      <%= link_to edit_category_idea_path(@idea) do %>
+          <i class="ph-pencil-simple-line" id="action-button"></i>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="new-idea-link bd-highlight p-3 d-flex align-items-center">
+    <% if policy(Idea).create? %>
+      <%= link_to @category_idea, method: :delete, data: {confirm: "Are you sure you want to delete?"} do %>
+          <i class="ph-trash" id="action-button"></i>
+      <% end %>
+    <% end %>
+  </div>
+ </div>
+
 <h1> <%= @idea.title %> </h1>
