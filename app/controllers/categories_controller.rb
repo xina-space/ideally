@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_category, only: %i[show edit update destroy]
 
   def index
@@ -33,7 +34,7 @@ class CategoriesController < ApplicationController
 
   def show
     # authorize @ideas
-    @category = Category.where.not(user_id: current_user.id)
+    # @category = Category.where.not(user_id: current_user.id)
     authorize @category
   end
 
