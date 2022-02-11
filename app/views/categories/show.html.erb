@@ -33,11 +33,9 @@
                 <p class="uppercase-small"> <%= progress.status %> </p>
             </div>
             <%# idea card %>
-            <div class="idea">
-              <%= content_tag :ul, class: 'idea dropzone', data: { id: progress.id, target: 'draggable.progress' } do %>
+              <%= content_tag :ul, class: 'dropzone', data: { id: progress.id, target: 'draggable.progress' } do %>
                 <%= render progress.ideas, category: @category, progress: progress %>
               <% end %>
-            </div>
               <%= link_to [:new, @category, progress, :idea] do %>
                 <div class="add-button-area d-flex justify-content-center align-items-center">
                   <i class="ph-plus" id="add-button"></i>
