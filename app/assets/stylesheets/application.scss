@@ -161,6 +161,20 @@ a {
   font-size: 24px;
 }
 
+#add-button {
+  font-size: 24px;
+  text-align: center;
+}
+
+.add-button-area {
+  border-bottom: 2px solid $black;
+  height: 50px;
+  background-color: $green;
+  &:hover {
+    background-color: $yellow;
+  }
+}
+
 // idea index
 .idea-top {
   border-bottom: 2px solid $black;
@@ -214,20 +228,17 @@ a {
   // width: 50%;
 }
 
-// ideas index
+// category show
 
-.progress-container {
-  border-bottom: 2px solid $black;
-}
 
-.not-started-title {
+.progress-title {
   background-color: $beige;
   height: 100px;
   width: 100%;
   border-bottom: 2px solid $black;
 }
 
-.not-started {
+.progress-container {
   height: 100vh;
   border-right: 2px solid $black;
   border-left: 2px solid $black;
