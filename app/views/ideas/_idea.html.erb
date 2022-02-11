@@ -1,0 +1,10 @@
+<%= content_tag :li, data: { target: 'draggable.idea', url: category_progress_idea_path(category, progress, idea) } do %>
+  <div class="card">
+    <div class="card-body">
+      <p class="card-text">
+        <%= idea.content %>
+      </p>
+      <%= link_to 'delete', [category, progress, idea], method: :delete %>
+    </div>
+  </div>
+<% end %>

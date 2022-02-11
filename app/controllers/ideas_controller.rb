@@ -31,7 +31,7 @@ class IdeasController < ApplicationController
       #   @category = Category.find(params[:category][:id])
       #   IdeaCategory.create(idea: @idea, category: @category)
       # end
-      redirect_to @progress, notice: 'Your idea was added successfully'
+      redirect_to @category, notice: 'Your idea was added successfully'
     else
       render :new
     end
@@ -46,9 +46,9 @@ class IdeasController < ApplicationController
   end
 
   def destroy
-    authorize @idea
+    # authorize @idea
     @idea.destroy
-    redirect to @category, notice: 'The idea was successfully destroyed'
+    redirect_to @category, notice: 'The idea was successfully destroyed'
   end
 
   def update

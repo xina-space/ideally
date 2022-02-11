@@ -27,13 +27,18 @@
 </div>
 
     <%= content_tag :div, class: :row, data: { controller: 'draggable' } do %>
-        <%# <div class="progress-container row"> %>
       <% @category.progresses.each do |progress| %>
           <div class="not-started col-4">
             <div class="not-started-title col-4 d-flex justify-content-center align-items-center">
                 <p class="uppercase-small"> <%= progress.status %> </p>
             </div>
+            <%# idea card %>
+            <div class="idea">
+              <%= content_tag :ul, class: 'idea dropzone', data: { id: progress.id, target: 'draggable.progress' } do %>
+                <%= render progress.ideas, category: @category, progress: progress %>
+              <% end %>
+            </div>
+          <%= link_to "New idea", [:new, @category, progress, :idea] %>
           </div>
       <% end %>
-        <%# </div> %>
     <% end %>
