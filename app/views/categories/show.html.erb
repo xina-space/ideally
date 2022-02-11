@@ -25,3 +25,15 @@
     <% end %>
   </div>
 </div>
+
+    <%= content_tag :div, class: :row, data: { controller: 'draggable' } do %>
+        <%# <div class="progress-container row"> %>
+      <% @category.progresses.each do |progress| %>
+          <div class="not-started col-4">
+            <div class="not-started-title col-4 d-flex justify-content-center align-items-center">
+                <p class="uppercase-small"> <%= progress.status %> </p>
+            </div>
+          </div>
+      <% end %>
+        <%# </div> %>
+    <% end %>
