@@ -52,11 +52,10 @@ class IdeasController < ApplicationController
   end
 
   def update
-    @idea.update(idea_params)
     authorize @idea
     if @idea.update(idea_params)
       respond_to do |format|
-        format.html { redirect_to @list, notice: 'Item was successfully updated.' }
+        format.html { redirect_to @category, notice: 'Idea was successfully updated.' }
         format.json {}
       end
     else

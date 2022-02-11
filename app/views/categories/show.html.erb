@@ -33,7 +33,7 @@
                 <p class="uppercase-small"> <%= progress.status %> </p>
             </div>
             <%# idea card %>
-              <%= content_tag :ul, class: 'dropzone', data: { id: progress.id, target: 'draggable.progress' } do %>
+              <%= content_tag :ul, class: 'idea dropzone', data: { id: progress.id, target: 'draggable.progress' } do %>
                 <%= render progress.ideas, category: @category, progress: progress %>
               <% end %>
               <%= link_to [:new, @category, progress, :idea] do %>

@@ -38,14 +38,10 @@ class ProgressesController < ApplicationController
 
   # PATCH/PUT /progresses/1 or /progresses/1.json
   def update
-    respond_to do |format|
-      if @progress.update(progress_params)
-        format.html { redirect_to progress_url(@progress), notice: "Progress was successfully updated." }
-        format.json { render :show, status: :ok, location: @progress }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @progress.errors, status: :unprocessable_entity }
-      end
+    if @progress.update(progress_params)
+      redirect_to @category, notice: 'Progress was successfully updated'
+    else
+      render :edit
     end
   end
 
