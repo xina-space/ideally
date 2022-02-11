@@ -22,10 +22,11 @@ class CategoriesController < ApplicationController
     authorize @category
     @category.user = current_user
     if @category.save
-      if params[:category][:id].present?
-        @idea = Idea.find(params[:category][:id])
-        IdeaCategory.create(idea: @idea, category: @category)
-      end
+      # if params[:category][:id].present?
+        Progress.create(category_id: @category.id, status: 'not started')
+        Progress.create(category_id: @category.id, status: 'in progress')
+        Progress.create(category_id: @category.id, status: 'completed')
+      # end
       redirect_to categories_path
     else
       render :new

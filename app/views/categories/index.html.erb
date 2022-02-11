@@ -4,9 +4,9 @@
     <h2>Your idea categories</h2>
   </div>
 
-  <div class="new-cat-link bd-highlight p-3 d-flex align-items-center">
+  <div class="new-cat-link bd-highlight">
     <% if policy(Category).create? %>
-      <%= link_to new_category_path do %>
+      <%= link_to new_category_path, class:'p-3 d-flex align-items-center' do %>
           <p>New idea category</p>
       <% end %>
     <% end %>
@@ -17,19 +17,22 @@
   <div class="categories row">
     <% @categories.each do |category| %>
       <% if category.user_id == @user.id %>
-          <div class="category col-lg-4 col-sm-6 col-xs-12 d-flex align-items-end ">
-              <%= link_to category.title, category_path(category), class:'category-title' %>
-
-              <div class="category-buttons d-flex">
-                <%= link_to edit_category_path(category) do %>
-                  <i class="ph-pencil-simple-line" id="action-button"></i>
-                <% end %>
-                <%= link_to category, method: :delete, data: {confirm: "Are you sure you want to delete?"} do %>
-                  <i class="ph-trash" id="action-button"></i>
-                <% end %>
-              </div>
+        <div class="col-lg-3 col-sm-6 col-xs-12">
+          <%= link_to category_path(category) do %>
+          <div class="category d-flex align-items-end justify-content-between">
+            <p class='category-title'> <%= category.title %> </p>
+            <div class="category-buttons d-flex">
+              <%= link_to edit_category_path(category) do %>
+                <i class="ph-pencil-simple-line" id="action-button"></i>
+              <% end %>
+              <%= link_to category, method: :delete, data: {confirm: "Are you sure you want to delete?"} do %>
+                <i class="ph-trash" id="action-button"></i>
+              <% end %>
+            </div>
           </div>
           <% end %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>

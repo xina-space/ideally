@@ -197,6 +197,22 @@ a {
   }
 }
 
+.edit-idea-link {
+  text-align: center;
+  border-left: 2px solid $black;
+  &:hover {
+    background-color: $yellow;
+  }
+}
+
+.delete-category-link {
+  text-align: center;
+  border-left: 2px solid $black;
+  &:hover {
+    background-color: $yellow;
+  }
+}
+
 #back-button {
   font-size: 40px;
 }
@@ -237,7 +253,7 @@ a {
 // category show
 
 
-.progress-title {
+.not-started-title {
   background-color: $beige;
   height: 100px;
   width: 100%;
@@ -262,7 +278,7 @@ a {
   border-right: 2px solid $black;
 }
 
-.done-title {
+.complete-title {
   background-color: $green;
   height: 100px;
   width: 100%;
@@ -285,4 +301,8 @@ a {
   &:hover {
     background-color: $yellow;
   }
+}
+
+.idea-space {
+  height: 100vh;
 }
