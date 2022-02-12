@@ -1,8 +1,13 @@
 <%= content_tag :li, data: { target: 'draggable.idea', url: category_progress_idea_path(category, progress, idea) } do %>
   <div class="idea p-3 d-flex justify-content-between">
-        <%= idea.content %>
-      <%= link_to [category, progress, idea], method: :delete do %>
-        <i class="ph-trash" id="add-button"></i>
-      <% end %>
+      <%= idea.content %>
+      <div class="d-flex">
+        <%= link_to [category, progress, idea], method: :delete do %>
+          <i class="ph-trash" id="add-button"></i>
+        <% end %>
+        <%= link_to edit_category_progress_idea_path(@category, progress, idea) do %>
+            <i class="ph-pencil-simple-line" id="add-button"></i>
+        <% end %>
+      </div>
   </div>
 <% end %>

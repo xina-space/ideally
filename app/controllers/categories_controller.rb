@@ -44,10 +44,12 @@ class CategoriesController < ApplicationController
   end
 
   def update
+    authorize @category
     respond_to do |format|
       if @category.update(category_params)
         format.html { redirect_to @category, notice: 'Category was successfully updated.' }
         format.json { render :show, status: :ok, location: @category }
+        # redirect_to categories_path
       else
         format.html { render :edit }
         format.json { render json: @category.errors, status: :unprocessable_entity }

@@ -261,9 +261,9 @@ a {
 }
 
 .progress-container {
-  height: 100vh;
+  // height: 100vh;
   border-right: 2px solid $black;
-  border-left: 2px solid $black;
+  border-bottom: 2px solid $black;
 }
 
 .in-progress-title {
@@ -271,11 +271,6 @@ a {
   height: 100px;
   width: 100%;
   border-bottom: 2px solid $black;
-}
-
-.in-progress {
-  height: 100vh;
-  border-right: 2px solid $black;
 }
 
 .complete-title {
@@ -300,6 +295,7 @@ a {
   height: 100px;
   &:hover {
     background-color: $yellow;
+    cursor: hand;
   }
 }
 
