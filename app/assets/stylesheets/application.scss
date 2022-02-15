@@ -88,7 +88,7 @@ a {
 // homepage
 
 .home-top {
-  height: 30vh;
+  // height: 30vh;
   border-left: 2px solid $black;
   border-right: 2px solid $black;
 }
@@ -96,17 +96,20 @@ a {
 .home-cta {
   border-left: 2px solid $black;
   background-color: $green;
+  width: 300px;
   &:hover {
     background-color: $yellow;
   }
 }
 
 .home-hero {
-  border: 2px solid $black;
+  border-top: 2px solid $black;
+  border-bottom: 2px solid $black;
   position: fixed;
   bottom: 0;
   width: 100%;
   height: 50vh;
+  background-color: $beige;
 }
 
 .home-text {
@@ -301,4 +304,51 @@ a {
 
 .idea-space {
   height: 100vh;
+}
+
+
+// new
+
+#idea_content {
+  border: 2px solid $black;
+  background-color: $white;
+}
+
+.trix-button {
+  border: 2px solid $black;
+  background-color: $beige;
+  &:hover {
+    background-color: $yellow;
+  }
+}
+
+.trix-button--icon-increase-nesting-level,
+.trix-button--icon-decrease-nesting-level,
+.trix-button--icon-redo,
+.trix-button--icon-attach,
+.trix-button--icon-number-list,
+.trix-button--icon-quote,
+.trix-button--icon-undo,
+.trix-button--icon-heading-1,
+.trix-button--icon-bullet-list,
+.trix-button--icon-code,
+.trix-button--icon-heading,
+.trix-button--icon-strike { display: none; }
+
+.trix-input--dialog {
+  border: 2px solid $black;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.edit-title {
+  padding-right: 5px;
+}
+.edit-idea-title {
+  font-style: italic;
+}
+
+.star {
+  max-width: 100%;
+  max-height: 100%;
 }

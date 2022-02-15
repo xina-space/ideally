@@ -46,7 +46,7 @@ class IdeasController < ApplicationController
   end
 
   def destroy
-    # authorize @idea
+    authorize @idea
     @idea.destroy
     redirect_to @category, notice: 'The idea was successfully destroyed'
   end

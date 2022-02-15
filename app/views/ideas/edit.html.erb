@@ -1,4 +1,14 @@
 
-<h2 class="p-3">Add idea</h2>
+<div class="idea-top d-flex">
+  <%= link_to category_path(@category) do %>
+    <div class="back-button-box bd-highlight p-3">
+      <i class="ph-arrow-circle-left" id="back-button"></i>
+    </div>
+  <% end %>
 
+  <div class="cat-title bd-highlight w-100 p-3 d-flex">
+      <h2 class="edit-title">Edit</h2>
+      <h2 class="edit-idea-title"><%= @idea.content %></h2>
+  </div>
+</div>
 <%= render 'form', idea: @idea %>
