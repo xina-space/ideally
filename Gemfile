@@ -64,3 +64,7 @@ gem 'devise'
 gem 'simple_form'
 
 gem 'jquery-rails'
+
+gem 'omniauth-rails_csrf_protection'
+gem 'omniauth-github'
+gem 'omniauth-google-oauth2'
