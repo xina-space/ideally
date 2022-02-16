@@ -6,11 +6,18 @@
   </div>
   <div class="bd-highlight w-100"></div>
 
-<div class="nav-button flex-shrink-1 bd-highlight p-3 d-flex align-items-center">
-    <% if user_signed_in? %>
-          <%= link_to 'sign out', destroy_user_session_path, method: :delete, class: "nav-link" %>
-      <% else %>
-        <%= link_to 'sign in', new_user_session_path, class: "nav-link" %>
+  <% if user_signed_in? %>
+      <%= link_to destroy_user_session_path, method: :delete, class: "nav-button" do %>
+        <div class="nav-link position-absolute top-50 start-50 translate-middle flex-shrink-1 bd-highlight p-3 d-flex align-items-center">
+          <p>sign out</p>
+        </div>
+      <% end %>
+
+    <% else %>
+      <%= link_to new_user_session_path, class: "nav-button" do %>
+        <div class="nav-link position-absolute top-50 start-50 translate-middle flex-shrink-1 bd-highlight p-3 d-flex align-items-center">
+          <p>sign in</p>
+        </div>
+      <% end %>
     <% end %>
-  </div>
 </div>

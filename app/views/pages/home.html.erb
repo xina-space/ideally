@@ -12,12 +12,19 @@
       <p class="mt-3">An organized approach to kickstarting your projects</p>
     </div>
 
-    <div class="home-cta bd-highlight p-3 d-flex align-items-center">
     <% if user_signed_in? %>
-      <%= link_to 'Browse my categories', categories_path %>
+      <%= link_to categories_path, class:'home-cta' do %>
+        <div class="bd-highlight p-3 d-flex align-items-center">
+          <p class='position-absolute top-50 start-50 translate-middle'>Browse my categories</p>
+        </div>
+      <% end %>
     <% else %>
-      <%= link_to 'Get started', new_user_session_path %>
+      <%= link_to new_user_session_path, class:'home-cta' do %>
+        <div class="bd-highlight p-3 d-flex align-items-center">
+          <p class='position-absolute top-50 start-50 translate-middle'>Get started</p>
+        </div>
+      <% end %>
     <% end %>
-    </div>
+
   </div>
 </div>
