@@ -88,9 +88,19 @@ a {
 // homepage
 
 .home-top {
-  // height: 30vh;
   border-left: 2px solid $black;
   border-right: 2px solid $black;
+}
+
+.star-contain {
+  height: 39vh;
+  position: fixed;
+  object-fit: contain;
+}
+
+
+.star-pattern {
+  max-height: 200%;
 }
 
 .home-cta {
@@ -348,7 +358,7 @@ a {
   font-style: italic;
 }
 
-.star {
-  max-width: 100%;
-  max-height: 100%;
-}
+// .star {
+//   max-width: 100%;
+//   max-height: 100%;
+// }
