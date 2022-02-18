@@ -53,6 +53,9 @@ body {
   border-right: 2px solid $black;
   text-align:center;
   background-color: $pink;
+  &:hover {
+    background-color: $yellow;
+  }
 }
 
 .nav-button {
