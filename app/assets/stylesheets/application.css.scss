@@ -244,6 +244,9 @@ a {
 .back-button-box {
   border-right: 2px solid $black;
   background-color: $yellow;
+  &:hover {
+    background-color: $green;
+  }
 }
 
 .new-top {
