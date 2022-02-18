@@ -211,9 +211,12 @@ a {
   border-right: 2px solid $black;
 }
 
-// .idea-content {
-//   font-family: 'Space Mono', monospace;
-// }
+#idea-content {
+  &:focus {
+    border-color: $yellow;
+    box-shadow: 0 0 0 0.000001rem;
+  }
+}
 
 .new-idea-link {
   text-align: center;
@@ -263,6 +266,10 @@ a {
   border: 2px solid $black;
   border-radius: 0;
   background-color: $beige;
+  &:focus {
+    border-color: $yellow;
+    box-shadow: 0 0 0 0.000001rem;
+  }
 }
 
 .submit-button {
@@ -350,6 +357,10 @@ a {
 #idea_content {
   border: 2px solid $black;
   background-color: $white;
+  &:focus {
+    border-color: $yellow;
+    box-shadow: 0 0 0 0.000001rem;
+  }
 }
 
 .trix-button {
@@ -359,6 +370,7 @@ a {
     background-color: $yellow;
   }
 }
+
 
 .trix-button--icon-increase-nesting-level,
 .trix-button--icon-decrease-nesting-level,
